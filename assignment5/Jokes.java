@@ -1,8 +1,8 @@
 package assignment5;
 
-public class WeekdayJokes {
+public class Jokes {
 
-    public String[] getWeekdayJokes(String weekday) {
+    public static String[] getJokes(String weekday) {
         return switch (weekday) {
             case "Monday" -> new String[]{"Joke 1", "Joke 2", "Joke 3"};
             case "Tuesday" -> new String[]{"Joke 4", "Joke 5", "Joke 6"};
