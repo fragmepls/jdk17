@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -16,6 +18,7 @@ public class BOberrauchLeonardBzGuessGame {
         String input = "";
         String code = generateCode();
         int attempts = 20;
+        List<String> history = new ArrayList<>();
         while (!input.equals("quit") && !input.equals(code) && attempts != 0) {
             System.out.print(attempts + ">");
             input = scanner.nextLine();
@@ -41,18 +44,24 @@ public class BOberrauchLeonardBzGuessGame {
                     System.out.println();
                     break;
                 case "h":
+                    if (history.isEmpty()) {
+                        System.out.println("No history");
+                        break;
+                    } else {
+                        for (String s : history) {
+                            System.out.println(s);
+                        }
+                    }
                     break;
-                case "r":
+                case "r", "quit":
                     System.out.println(code);
                     break;
                 case "p":
                     System.out.print("Enter code: ");
                     code = scanner.nextLine();
                     break;
-                case "quit":
-                    System.out.println(code);
-                    break;
                 default:
+                    history.add(input);
                     if (input.length() != 4) {
                         System.out.println("Invalid input");
                         break;
@@ -71,6 +80,10 @@ public class BOberrauchLeonardBzGuessGame {
                     break;
             }
         }
+        if (input.equals(code))
+            System.out.println("You won!");
+        else if (attempts == 0)
+            System.out.println("You lost!");
     }
 
     public static void printIntroduction() {
