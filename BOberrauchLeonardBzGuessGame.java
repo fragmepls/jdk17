@@ -9,7 +9,8 @@ public class BOberrauchLeonardBzGuessGame {
 
     public static void main(String[] args) {
         BOberrauchLeonardBzGuessGame game = new BOberrauchLeonardBzGuessGame();
-        printIntroduction();
+        System.out.println("Programmed by Leonard Oberrauch");
+//        printIntroduction();
         game.startGame();
     }
 
